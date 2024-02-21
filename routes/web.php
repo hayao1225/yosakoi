@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/teams', [TeamController::class, 'index']);
+Route::get('/', [TeamController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
