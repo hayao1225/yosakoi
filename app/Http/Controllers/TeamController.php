@@ -11,4 +11,9 @@ class TeamController extends Controller
     {
         return $team->get();
     }
+    public function show(Team $team)
+    {
+        return view('teams.show')->with(['team' => $team]);
+        //'team'はbladeファイルで使う変数。中身は$teamはid=1のTeamインスタンス。
+    }
 }
