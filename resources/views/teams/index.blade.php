@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Team</title>
+        <title>Teams</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -11,8 +11,9 @@
         <div class='teams'>
             @foreach ($teams as $team)
                 <div class='team'>
-                    <h2 class='title'>{{ $team->title }}</h2>
-                    <p class='body'>{{ $team->body }}</p>
+                    <h2 class='title'>
+                        <a href="/teams/{{ $team->id }}">{{ $team->title }}</a>
+                    </h2>
                 </div>
             @endforeach
         </div>

@@ -20,7 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/teams', [TeamController::class, 'index']);
-Route::get('/', [TeamController::class,'index']);
+Route::get('/teams/{team}', [TeamController::class ,'show']);
+//'/teams/{対象データのID}'にGetリクエストが来たら、TeamControllerのshowメソッドを実行する。
 
 Route::get('/dashboard', function () {
     return view('dashboard');
