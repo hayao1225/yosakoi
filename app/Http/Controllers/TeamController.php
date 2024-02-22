@@ -9,7 +9,8 @@ class TeamController extends Controller
 {
     public function index(Team $team)
     {
-        return $team->get();
+        return view('teams.index')->with(['teams' => $team->getPaginateByLimit()]);
+        //blade内で使う変数'teams'と設定。'teams'の中身にgetを使い、インスタンス化した$teamを代入。
     }
     public function show(Team $team)
     {
