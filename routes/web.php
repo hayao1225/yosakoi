@@ -22,6 +22,7 @@ Route::get('/teams/{team}', [TeamController::class, 'show']);
 Route::post('/teams', [TeamController::class, 'store']);
 Route::get('/teams/{team}/edit', [TeamController::class, 'edit']);
 Route::put('/teams/{team}', [TeamController::class, 'update']);
+Route::delete('/teams/{team}', [TeamController::class,'delete']);
 
 Route::get('/', function () {
     return view('welcome');

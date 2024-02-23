@@ -11,10 +11,7 @@ class TeamRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
-    }
+   
 
     /**
      * Get the validation rules that apply to the request.
@@ -25,7 +22,7 @@ class TeamRequest extends FormRequest
     {
         return [
             'team.title' => 'required|string|max:100',
-            'team.body' => 'reqired|string|max:500',
+            'team.body' => 'required|string|max:500',
         ];
     }
 }
