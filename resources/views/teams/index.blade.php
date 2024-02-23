@@ -14,6 +14,12 @@
                     <h2 class='title'>
                         <a href="/teams/{{ $team->id }}">{{ $team->title }}</a>
                     </h2>
+                    <p class='body'>{{ $team->body }}</p>
+                    <form action="/teams/{{ $team->id }}" id="form_{{ $team->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deleteTeam({{ $team->id }})">delete</button>
+                    </form>
                 </div>
             @endforeach
         </div>
@@ -21,5 +27,14 @@
         <div class='paginate'>
             {{ $teams->links() }} 
         </div>
+        <script>
+            function deleteTeam(id) {
+                'use strict'
+                
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>

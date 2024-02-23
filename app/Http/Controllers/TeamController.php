@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
-use Illuminate\Http\Requests\TeamRequest;
+use App\Http\Requests\TeamRequest;
 
 class TeamController extends Controller
 {
@@ -36,5 +36,10 @@ class TeamController extends Controller
         $input_team = $request['team'];
         $team->fill($input_team)->save();
         return redirect('/teams/' . $team->id);
+    }
+    public function delete(Team $team)
+    {
+        $team->delete();
+        return redirect('/');
     }
 }
