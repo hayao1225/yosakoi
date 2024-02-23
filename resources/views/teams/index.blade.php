@@ -17,6 +17,7 @@
                 </div>
             @endforeach
         </div>
+        <a href='/teams/create'>create</a>
         <div class='paginate'>
             {{ $teams->links() }} 
         </div>

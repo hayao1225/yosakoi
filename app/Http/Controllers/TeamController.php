@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use Illuminate\Http\Requests\TeamRequest;
 
 class TeamController extends Controller
 {
@@ -16,5 +17,15 @@ class TeamController extends Controller
     {
         return view('teams.show')->with(['team' => $team]);
         //'team'はbladeファイルで使う変数。中身は$teamはid=1のTeamインスタンス。
+    }
+    public function create()
+    {
+        return view('teams.create');
+    }
+    public function store(Team $team, TeamRequest $request, )
+    {
+        $input = $request['team'];
+        $team->fill($input)->save();
+        return redirect('/teams/' . $team->id);
     }
 }
