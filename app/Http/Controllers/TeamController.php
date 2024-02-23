@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Team;
 use Illuminate\Http\Requests\TeamRequest;
 
@@ -22,10 +21,20 @@ class TeamController extends Controller
     {
         return view('teams.create');
     }
-    public function store(Team $team, TeamRequest $request, )
+    public function store(TeamRequest $request, Team $team)
     {
         $input = $request['team'];
         $team->fill($input)->save();
+        return redirect('/teams/' . $team->id);
+    }
+    public function edit(Team $team)
+    {
+        return view('teams.edit')->with(['team' => $team]);
+    }
+    public function update(TeamRequest $request, Team $team)
+    {
+        $input_team = $request['team'];
+        $team->fill($input_team)->save();
         return redirect('/teams/' . $team->id);
     }
 }

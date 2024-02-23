@@ -15,13 +15,13 @@ use App\Http\Controllers\TeamController;
 |
 */
 
-
-
 Route::get('/teams', [TeamController::class, 'index']);
 Route::get('/teams/create', [TeamController::class, 'create']);
 Route::get('/teams/{team}', [TeamController::class, 'show']);
 //'/teams/{対象データのID}'にGetリクエストが来たら、TeamControllerのshowメソッドを実行する。
 Route::post('/teams', [TeamController::class, 'store']);
+Route::get('/teams/{team}/edit', [TeamController::class, 'edit']);
+Route::put('/teams/{team}', [TeamController::class, 'update']);
 
 Route::get('/', function () {
     return view('welcome');

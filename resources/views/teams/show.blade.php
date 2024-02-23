@@ -16,6 +16,7 @@
                 <P>{{ $team->body }}</P>
             </div>
         </div>
+        <div class="edit"><a href="/teams/{{ $team->id }}/edit"></a></div>
         <div class="footer">
             <a href="/">戻る</a> 
         </div>
