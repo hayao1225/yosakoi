@@ -11,10 +11,9 @@
         <div class='teams'>
             @foreach ($teams as $team)
                 <div class='team'>
-                    <h2 class='title'>
-                        <a href="/teams/{{ $team->id }}">{{ $team->title }}</a>
+                    <h2 class='name'>
+                        <a href="/teams/{{ $team->id }}">{{ $team->name }}</a>
                     </h2>
-                    <p class='body'>{{ $team->body }}</p>
                     <form action="/teams/{{ $team->id }}" id="form_{{ $team->id }}" method="post">
                         @csrf
                         @method('DELETE')

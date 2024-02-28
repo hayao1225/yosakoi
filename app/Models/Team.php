@@ -12,8 +12,9 @@ class Team extends Model
     use SoftDeletes;
     
     protected $fillable = [
-        'title',
-        'body',
+        'name',
+        'image_url',
+        'prefecture_id'
         ];
         
     public function getPaginateByLimit(int $limit_count = 10)

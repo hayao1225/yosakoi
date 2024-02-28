@@ -8,17 +8,16 @@
     </head>
     <body>
         <h1>チーム名</h1>
-        <form action="/teams" method="POST">
+        <form action="/teams" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="title">
+            <div class="name">
                 <h2>Title</h2>
                 <input type="text" name="team[title]" placeholder="チーム名" value="{{ old('team.title') }}"/>
                 <p class="title_error" style="color:red">{{ $errors->first('team.title') }}</p>
             </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="team[body]" placeholder="かっこいいチーム">{{ old('team.body') }}</textarea>
-                <p class="body_error" style="color:red">{{ $errors->first('team.body') }}</p>
+            <div class="image">
+                <input type="file" name="image">
+                <p class="image_url_error" style="color:red">{{ $errors->first('team.image_url') }}</p>
             </div>
             <input type="submit" value="保存"/>
         </form>
