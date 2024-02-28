@@ -12,13 +12,9 @@
             <form action="/teams/{{ $team->id }}" method="POST">
                 @csrf
                 @method('PUT')
-                <div class='content_title'>
+                <div class='content_name'>
                     <h2>タイトル</h2>
-                    <input type='text' name='team[title]' value="{{ $team->title }}">
-                </div>
-                <div class='content_body'>
-                    <h2>本文</h2>
-                    <input type='text' name='team[body]' value="{{ $team->body }}">
+                    <input type='text' name='team[name]' value="{{ $team->name }}">
                 </div>
                 <input type="submit" value="保存"/>
             </form>

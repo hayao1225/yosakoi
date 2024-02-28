@@ -21,8 +21,8 @@ class TeamRequest extends FormRequest
     public function rules()
     {
         return [
-            'team.title' => 'required|string|max:100',
-            'team.body' => 'required|string|max:500',
+            'team.name' => 'required|string|max:100',
+            'team.image_url' => 'required',
         ];
     }
 }

@@ -7,14 +7,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1 class="title">
-            {{ $team->title }}
+        <h1 class="name">
+            {{ $team->name }}
         </h1>
-        <div class="content">
-            <div class="content_team">
-                <h3>本文</h3>
-                <P>{{ $team->body }}</P>
-            </div>
+        <div>
+            <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
         </div>
         <div class="edit"><a href="/teams/{{ $team->id }}/edit"></a></div>
         <div class="footer">

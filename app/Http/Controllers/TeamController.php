@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use App\Http\Requests\TeamRequest;
+use Illuminate\Support\Facades\Auth;
+use Cloudinary;
 
 class TeamController extends Controller
 {
@@ -23,7 +25,11 @@ class TeamController extends Controller
     }
     public function store(TeamRequest $request, Team $team)
     {
+        //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input += ['image_url' => $image_url];
         $input = $request['team'];
+        $team->user_id = Auth::id();
         $team->fill($input)->save();
         return redirect('/teams/' . $team->id);
     }
@@ -34,6 +40,7 @@ class TeamController extends Controller
     public function update(TeamRequest $request, Team $team)
     {
         $input_team = $request['team'];
+        $team->user_id = Auth::id();
         $team->fill($input_team)->save();
         return redirect('/teams/' . $team->id);
     }

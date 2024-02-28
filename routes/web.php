@@ -16,13 +16,15 @@ use App\Http\Controllers\TeamController;
 */
 
 Route::get('/teams', [TeamController::class, 'index']);
-Route::get('/teams/create', [TeamController::class, 'create']);
-Route::get('/teams/{team}', [TeamController::class, 'show']);
+Route::get('/teams/create', [TeamController::class, 'create']);//投稿フォームの表示
+Route::get('/teams/{team}', [TeamController::class, 'show']);//投稿詳細画面の表示
 //'/teams/{対象データのID}'にGetリクエストが来たら、TeamControllerのshowメソッドを実行する。
-Route::post('/teams', [TeamController::class, 'store']);
+Route::post('/teams', [TeamController::class, 'store']);//画像を含めた投稿の保存処理
 Route::get('/teams/{team}/edit', [TeamController::class, 'edit']);
 Route::put('/teams/{team}', [TeamController::class, 'update']);
 Route::delete('/teams/{team}', [TeamController::class,'delete']);
+
+
 
 Route::get('/', function () {
     return view('welcome');
