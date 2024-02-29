@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Prefecture;
 use App\Http\Requests\TeamRequest;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
@@ -19,9 +20,9 @@ class TeamController extends Controller
         return view('teams.show')->with(['team' => $team]);
         //'team'はbladeファイルで使う変数。中身は$teamはid=1のTeamインスタンス。
     }
-    public function create()
+    public function create(Prefecture $prefecture)
     {
-        return view('teams.create');
+        return view('teams.create')->with(['prefectures' => $prefecture->get()]);
     }
     public function store(TeamRequest $request, Team $team)
     {

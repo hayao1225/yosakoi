@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\PrefectureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::post('/teams', [TeamController::class, 'store']);//画像を含めた投�
 Route::get('/teams/{team}/edit', [TeamController::class, 'edit']);
 Route::put('/teams/{team}', [TeamController::class, 'update']);
 Route::delete('/teams/{team}', [TeamController::class,'delete']);
+Route::get('/prefectures/{prefecture}', [PrefectureController::class,'index']);
 
 
 
