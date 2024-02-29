@@ -7,6 +7,7 @@ use App\Models\Prefecture;
 use App\Http\Requests\TeamRequest;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
+use App\Models\Post;
 
 class TeamController extends Controller
 {
@@ -15,9 +16,9 @@ class TeamController extends Controller
         return view('teams.index')->with(['teams' => $team->getPaginateByLimit()]);
         //blade内で使う変数'teams'と設定。'teams'の中身にgetを使い、インスタンス化した$teamを代入。
     }
-    public function show(Team $team)
+    public function show(Team $team, Post $post)
     {
-        return view('teams.show')->with(['team' => $team]);
+        return view('teams.show')->with(['team' => $team])->with(['posts' => $post->getPaginateByLimit()]);
         //'team'はbladeファイルで使う変数。中身は$teamはid=1のTeamインスタンス。
     }
     public function create(Prefecture $prefecture)

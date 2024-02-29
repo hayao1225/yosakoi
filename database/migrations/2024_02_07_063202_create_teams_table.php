@@ -20,7 +20,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('users');
             $table->string('image_url',1000);
-            $table->foreignId('prefecture_id')->references('id')->on('prefectures');
             $table->timestamps();
             $table->softDeletes();
         });
