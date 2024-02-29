@@ -11,8 +11,9 @@
             {{ $team->name }}
         </h1>
         <div>
-            <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+            <img src="{{ $team->image_url }}" alt="画像が読み込めません。"/>
         </div>
+        <a href="/prefectures/{{ $team->prefecture->id }}">{{ $team->prefecture->name }}</a>
         <div class="edit"><a href="/teams/{{ $team->id }}/edit"></a></div>
         <div class="footer">
             <a href="/">戻る</a> 

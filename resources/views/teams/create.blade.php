@@ -16,8 +16,16 @@
                 <p class="title_error" style="color:red">{{ $errors->first('team.title') }}</p>
             </div>
             <div class="image">
-                <input type="file" name="image">
+                <input type="file" name="team[image]">
                 <p class="image_url_error" style="color:red">{{ $errors->first('team.image_url') }}</p>
+            </div>
+            <div class="prefecture">
+                <h2>所在地</h2>
+                <select name="team[prefecture_id]">
+                    @foreach($prefectures as $prefecture)
+                        <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <input type="submit" value="保存"/>
         </form>
