@@ -11,12 +11,12 @@
         <form action="/teams" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="name">
-                <h2>Title</h2>
+                <h2>名前</h2>
                 <input type="text" name="team[title]" placeholder="チーム名" value="{{ old('team.title') }}"/>
                 <p class="title_error" style="color:red">{{ $errors->first('team.title') }}</p>
             </div>
             <div class="image">
-                <input type="file" name="team[image]">
+                <input type="file" name="team[image_url]">
                 <p class="image_url_error" style="color:red">{{ $errors->first('team.image_url') }}</p>
             </div>
             <div class="prefecture">

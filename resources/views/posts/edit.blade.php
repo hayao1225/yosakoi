@@ -9,12 +9,12 @@
     <body>
         <h1 class="title">編集画面</h1>
         <div class="content">
-            <form action="/teams/{{ $team->id }}" method="POST">
+            <form action="/posts/{{ $post->id }}" method="POST">
                 @csrf
                 @method('PUT')
-                <div class='content_name'>
-                    <h2>名前</h2>
-                    <input type='text' name='team[name]' value="{{ $team->name }}">
+                <div class='content_body'>
+                    <h2>本文</h2>
+                    <input type='text' name='post[body]' value="{{ $post->body }}">
                 </div>
                 <input type="submit" value="保存"/>
             </form>

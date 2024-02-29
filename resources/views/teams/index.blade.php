@@ -20,9 +20,9 @@
                         <button type="button" onclick="deleteTeam({{ $team->id }})">delete</button>
                     </form>
                 </div>
+                <a href="/prefectures/{{ $team->prefecture->id }}">{{ $team->prefecture->name }}</a>
             @endforeach
         </div>
-        <a href="/prefectures/{{ $team->prefecture->id }}">{{ $team->prefecture->name }}</a>
         <a href='/teams/create'>create</a>
         <div class='paginate'>
             {{ $teams->links() }} 
