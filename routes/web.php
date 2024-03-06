@@ -16,7 +16,7 @@ use App\Http\Controllers\PostController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', [TeamController::class, 'index']);
 Route::get('/teams', [TeamController::class, 'index']);
 Route::get('/teams/create', [TeamController::class, 'create']);//投稿フォームの表示
 Route::get('/teams/{team}', [TeamController::class, 'show']);//投稿詳細画面の表示
@@ -36,9 +36,9 @@ Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class,'delete']);
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

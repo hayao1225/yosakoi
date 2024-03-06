@@ -28,6 +28,7 @@
                         <button type="button" onclick="deleteTeam({{ $post->id }})">delete</button>
                     </form>
                 </div>
+                <a>{{ $post->team->name }}</a>
             @endforeach
         </div>
         <a href='/posts/create'>コメントする</a>

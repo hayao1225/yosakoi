@@ -15,6 +15,7 @@
                 <div class='content_name'>
                     <h2>名前</h2>
                     <input type='text' name='team[name]' value="{{ $team->name }}">
+                    <p class="name_error" style="color:red">{{ $errors->first('team.name') }}</p>
                 </div>
                 <input type="submit" value="保存"/>
             </form>

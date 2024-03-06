@@ -14,7 +14,8 @@ class Team extends Model
     protected $fillable = [
         'name',
         'image_url',
-        'prefecture_id'
+        'prefecture_id',
+        'user_id'
         ];
         
     public function getPaginateByLimit(int $limit_count = 10)
@@ -24,5 +25,9 @@ class Team extends Model
     public function prefecture()
     {
         return $this->belongsTo(Prefecture::class);
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
