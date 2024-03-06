@@ -12,12 +12,12 @@
             @csrf
             <div class="name">
                 <h2>名前</h2>
-                <input type="text" name="team[title]" placeholder="チーム名" value="{{ old('team.title') }}"/>
-                <p class="title_error" style="color:red">{{ $errors->first('team.title') }}</p>
+                <input type="text" name="team[name]" placeholder="チーム名" value="{{ old('team.name') }}"/>
+                <p class="name_error" style="color:red">{{ $errors->first('team.name') }}</p>
             </div>
             <div class="image">
-                <input type="file" name="team[image_url]">
-                <p class="image_url_error" style="color:red">{{ $errors->first('team.image_url') }}</p>
+                <input type="file" name="image_url">
+                <p class="image_url_error" style="color:red">{{ $errors->first('image_url') }}</p>
             </div>
             <div class="prefecture">
                 <h2>所在地</h2>

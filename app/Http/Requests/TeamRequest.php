@@ -20,9 +20,18 @@ class TeamRequest extends FormRequest
      */
     public function rules()
     {
+	    return [
+		    'team.name' => 'required|string|max:100',
+		    'image_url' => 'required',
+	    ];
+    }
+     public function messages()
+    {
         return [
-            'team.name' => 'required|string|max:100',
-            'team.image_url' => 'required',
+            'team.name.required' => '名前を入力してください',
+            'team.name.string' => '名前は文字列で入力してください',
+            'team.name.max' => '名前は50文字以内で入力してください',
+            'image_url.required' => '画像を選択してください',
         ];
     }
 }

@@ -15,6 +15,14 @@
                 <input type="text" name="post[title]" placeholder="コメント" value="{{ old('team.title') }}"/>
                 <p class="body_error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
+            <div class="team">
+                <h2>チーム</h2>
+                <select name="post[team_id]">
+                    @foreach($teams as $team)
+                        <option value="{{ $team->id }}">{{ $team->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="保存"/>
         </form>
         <div class="back">[<a href="/">戻る</a>]</div>
