@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Team</title>
+        <title>Post</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
@@ -12,7 +12,7 @@
             @csrf
             <div class="body">
                 <h2>本文</h2>
-                <input type="text" name="post[title]" placeholder="コメント" value="{{ old('team.title') }}"/>
+                <input type="text" name="post[body]" placeholder="コメント" value="{{ old('post.body') }}"/>
                 <p class="body_error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <div class="team">
