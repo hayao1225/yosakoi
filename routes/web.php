@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PrefectureController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,13 @@ Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class,'delete']);
+
+Route::get('/comments/create', [CommentController::class, 'create']);
+Route::get('/comments/{comment}', [CommentController::class ,'show']);
+Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/comments/{comment}/edit', [CommentController::class, 'edit']);
+Route::put('/comments/{comment}', [CommentController::class, 'update']);
+Route::delete('/comments/{comment}', [CommentController::class,'delete']);
 
 
 // Route::get('/', function () {

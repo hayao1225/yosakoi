@@ -6,12 +6,13 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Team;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
-    public function show(Post $post)
+    public function show(Post $post, Comment $comment)
     {
-        return view('posts.show')->with(['post' => $post]);
+        return view('posts.show')->with(['post' => $post])->with(['comments' => $comment->getPaginateByLimit()]);
     }
     public function create(Team $team)
     {
