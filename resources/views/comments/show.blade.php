@@ -12,6 +12,7 @@
             <p>{{ $comment->body }}</p>
         </div>
         <div class="edit"><a href="/comments/{{ $comment->id }}/edit">編集</a></div>
+        <a href="/posts/{{ $comment->post->id }}">{{ $comment->post->body }}</a>
         <div class="footer">
             <a href="/">戻る</a> 
         </div>

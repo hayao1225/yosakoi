@@ -13,11 +13,16 @@ class Comment extends Model
     
     protected $fillable = [
         'body',
-        'user_id'
+        'user_id',
+        'post_id'
         ];
     
     public function getPaginateByLimit(int $limit_count = 10)
     {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('post')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }

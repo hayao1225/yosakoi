@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Post;
 
 class CommentController extends Controller
 {
@@ -12,9 +13,9 @@ class CommentController extends Controller
     {
         return view('comments.show')->with(['comment' => $comment]);
     }
-    public function create()
+    public function create(Post $post)
     {
-        return view('comments.create');
+        return view('comments.create')->with(['posts' => $post->get()]);
     }
     public function store(CommentRequest $request,  Comment $comment)
     {

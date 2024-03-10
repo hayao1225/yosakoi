@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-            $table->string('body',200);
-            $table->foreignId('user_id')
-                 ->references('id')
-                 ->on('users')
-                 ->onDelete('cascade');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('comments', function (Blueprint $table) {
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
         });
     }
 
@@ -32,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::table('comments', function (Blueprint $table) {
+            //
+        });
     }
 };
