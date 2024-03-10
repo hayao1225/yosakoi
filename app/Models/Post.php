@@ -25,4 +25,12 @@ class Post extends Model
     {
         return $this->belongsTo(Team::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(comment::class);
+    }
+    public function getByPost(int $limit_count = 5)
+    {
+        return $this->comments()->with('post')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }

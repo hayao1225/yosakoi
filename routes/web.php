@@ -44,6 +44,7 @@ Route::put('/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/comments/{comment}', [CommentController::class,'delete']);
 
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
