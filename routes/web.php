@@ -17,7 +17,7 @@ use App\Http\Controllers\CommentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [TeamController::class, 'index']);
+Route::get('/', [TeamController::class, 'index'])->name('index');
 Route::get('/teams', [TeamController::class, 'index']);
 Route::get('/teams/create', [TeamController::class, 'create']);//投稿フォームの表示
 Route::get('/teams/{team}', [TeamController::class, 'show']);//投稿詳細画面の表示
